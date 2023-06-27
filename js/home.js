@@ -5,15 +5,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 //Template literal ES6 features
 const createInnerHtml = () => {
     const headerHtml = "<th>Profile Pic</th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
-    let empPayrollData = createEmployeePayrollJSON()[5];
+    let empPayrollData = createEmployeePayrollJSON()[0];
     const innerHtml = `${headerHtml}
     <tr>
         <td><img class="profile" alt="" src="${empPayrollData._profilePic}" style="border-radius: 50%; height: 50px; width: 50px;"></td>
         <td>${empPayrollData._name}</td>
         <td>${empPayrollData._gender}</td>
-        <td><div class='dept-label'>${empPayrollData._department[0]}</div>
-            <div class='dept-label'>${empPayrollData._department[1]}</div>
-        </td>
+        <td>${getDeptHtml(empPayrollData._department)}</td>
         <td>${empPayrollData._salary}</td>
         <td>${empPayrollData._startDate}</td>
         <td>
@@ -102,4 +100,12 @@ const createEmployeePayrollJSON =() =>{
         }
     ];
     return empPayrollListLocal;
+}
+
+const getDeptHtml = (deptList) => {
+    let deptHtml = '';
+    for (const dept of deptList) {
+        deptHtml = `${deptHtml} <div class='dept-label'>${dept}</div>`
+    }
+    return deptHtml;
 }
