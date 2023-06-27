@@ -5,9 +5,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 //Template literal ES6 features
 const createInnerHtml = () => {
     const headerHtml = "<th>Profile Pic</th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
-    let empPayrollData = createEmployeePayrollJSON()[0];
-    const innerHtml = `${headerHtml}
-    <tr>
+    let innerHtml = `${headerHtml}`;
+    let empPayrollList = createEmployeePayrollJSON();
+    for (const empPayrollData of empPayrollList) {
+      innerHtml = `${innerHtml}
+      <tr>
         <td><img class="profile" alt="" src="${empPayrollData._profilePic}" style="border-radius: 50%; height: 50px; width: 50px;"></td>
         <td>${empPayrollData._name}</td>
         <td>${empPayrollData._gender}</td>
@@ -18,12 +20,13 @@ const createInnerHtml = () => {
             <img id="${empPayrollData._id}" onclick="remove(this)" alt="delete" src="../assets/deleteIcon.png">
             <img id="${empPayrollData._id}" onclick="update(this)" alt="edit" src="../assets/edit.png">
         </td>
-    </tr>`;
+      </tr>`;
+    }
     document.querySelector('#display').innerHTML = innerHtml;
 }
 
 //JSON object to load data in our table
-const createEmployeePayrollJSON =() =>{
+const createEmployeePayrollJSON = () => {
     let empPayrollListLocal = [
         {
             _name: 'Mukul dev Patel',
