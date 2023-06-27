@@ -4,16 +4,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 //Template literal ES6 features
 const createInnerHtml = () => {
-    const innerHtml = `
-    <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Department</th>
-        <th>Salary</th>
-        <th>Start Date</th>
-        <th>Actions</th>
-    </tr>
+    const headerHtml = "<th></th><th>Name</th><th>Gender</th><th>Department</th><th>Salary</th><th>Start Date</th><th>Actions</th>";
+    const innerHtml = `${headerHtml}
     <tr>
         <td><img class="profile" alt="" src="../assets/face2.jpg" style="border-radius: 50%; height: 50px; width: 50px;"></td>
         <td>Mukul Dev Patel</td>
