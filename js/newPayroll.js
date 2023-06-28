@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             return;
         }
         try {
-            (new EmployeePayrollData()).name = name.value;;
+            (new EmployeePayrollData()).name = name.value;
             textError.textContent="";
         } catch(e) {
             textError.textContent=e;
@@ -47,7 +47,7 @@ const createEmployeePayroll = () =>{
     employeePayrollData.salary = getInputValueById('#salary');
     employeePayrollData.note = getInputValueById('#notes');
     let date = getInputValueById('#day') +" " + getInputValueById('#month')+" "+ getInputValueById('#year');
-    employeePayrollData.date = Date.parse(date);
+    employeePayrollData.startDate = date;
     alert(employeePayrollData.toString());
     return employeePayrollData;
 }
@@ -81,7 +81,7 @@ function createAndUpdateStoarge(employeePayrollData) {
         employeePayrollList = [employeePayrollData]
     }
     alert(employeePayrollList.toString());
-    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollData))
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
 }
 
 //UC5
