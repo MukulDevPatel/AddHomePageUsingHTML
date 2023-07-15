@@ -1,4 +1,4 @@
 let siteProperties = {
-    homePage: "../pages/addHomePage.htm",
+    homePage: "../pages/addHomePage.html",
     addEmpPayroll: "../pages/employeePayroll.html"
 };
